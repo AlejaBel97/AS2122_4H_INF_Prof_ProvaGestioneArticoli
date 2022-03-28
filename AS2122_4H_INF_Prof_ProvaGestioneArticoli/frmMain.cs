@@ -19,7 +19,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
             InitializeComponent();
 
             // TODO: (4) creazione lista articoli
-            articoli=List
+            articoli = new List<Articolo>();
             // ...
         }
 
@@ -34,7 +34,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
                 // aggiungi l'articolo all'elenco di articoli
                 // TODO: (1) aggiungere l'articolo creato dai dati di frmArticoli nella lista articoli
                 articoli.Add(new Articolo(articoli.Count + 1, f.Descrizione, f.UnitaMisura, f.Prezzo));
-                // ...
+                
                 
                 lblArticoliInseriti.Text = $"Articoli ({articoli.Count})";
 
@@ -48,6 +48,10 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
             {
                 case "Visualizza articoli":
                     // TODO: (2) aggiungere visualizzazione articoli inseriti nella listbox
+                    foreach(Articolo a in articoli)
+                    {
+                        lstElenco.Items.Add(a.Visualizzati());
+                    }
                     // ... lstElenco.Items.Add(a.Visualizzati()); 
                     break;
             }
